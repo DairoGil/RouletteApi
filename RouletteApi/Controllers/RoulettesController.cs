@@ -17,8 +17,8 @@ namespace RouletteApi.Controllers
             rouletteService = new RouletteServiceImpl(_context);
         }
 
-        public async Task<IActionResult> PostRoulette(Roulette roulette)
         [HttpGet("create")]
+        public async Task<IActionResult> CreateRoulette(Roulette roulette)
         {
             Roulette rouletteR = await rouletteService.AddRoulette(roulette);
 
