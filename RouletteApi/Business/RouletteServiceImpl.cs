@@ -16,10 +16,16 @@ namespace RouletteApi.Business
 
         public async Task<Roulette> AddRoulette(Roulette roulette)
         {
-            _context.Roulette.Add(roulette);
-            await _context.SaveChangesAsync();
-
-            return roulette;
+            try
+            {
+                _context.Roulette.Add(roulette);
+                await _context.SaveChangesAsync();
+                return roulette;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
