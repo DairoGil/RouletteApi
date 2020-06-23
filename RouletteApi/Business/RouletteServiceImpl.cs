@@ -38,7 +38,7 @@ namespace RouletteApi.Business
                 if (roulette == null)
                     throw new Exception("La ruleta no se encuentra creada en el sistema");
                 if (roulette.State.Equals(StateRoulette.States.Opened.ToString()))
-                    throw new BadRequestException("Denegado, La ruleta ya se encueentra abierta");
+                    throw new BadRequestException("Denegado, La ruleta ya se encuentra abierta");
                 roulette.State = StateRoulette.States.Opened.ToString();
                 _contextDataBase.Entry(roulette).Property("State").IsModified = true;
                 await _contextDataBase.SaveChangesAsync();
