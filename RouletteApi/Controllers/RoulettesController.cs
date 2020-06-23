@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.SecurityTokenService;
 using RouletteApi.Business;
@@ -36,6 +37,13 @@ namespace RouletteApi.Controllers
                 return BadRequest(exception.Message);
             }
             
+        }
+
+        [HttpGet("list")]
+        public async Task<IActionResult> ListRoulette()
+        {
+            List<Roulette> listRoulette = await _rouletteService.ListRoulette();
+            return Ok(listRoulette);
         }
     }
 }
