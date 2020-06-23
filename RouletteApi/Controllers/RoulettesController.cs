@@ -10,12 +10,10 @@ namespace RouletteApi.Controllers
     [ApiController]
     public class RoulettesController : ControllerBase
     {
-        private readonly onlinebettingContext _context;
         private readonly RouletteService rouletteService;
 
         public RoulettesController(onlinebettingContext context)
         {
-            _context = context;
             rouletteService = new RouletteServiceImpl(_context);
         }
 
