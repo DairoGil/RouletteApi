@@ -7,19 +7,19 @@ namespace RouletteApi.Business
 {
     public class RouletteServiceImpl : RouletteService
     {
-        private readonly onlinebettingContext _context;
+        private readonly onlinebettingContext _contextDataBase;
 
-        public RouletteServiceImpl(onlinebettingContext contex)
+        public RouletteServiceImpl(onlinebettingContext contextDataBase)
         {
-            _context = contex;
+            _contextDataBase = contextDataBase;
         }
 
         public async Task<Roulette> AddRoulette(Roulette roulette)
         {
             try
             {
-                _context.Roulette.Add(roulette);
-                await _context.SaveChangesAsync();
+                _contextDataBase.Roulette.Add(roulette);
+                await _contextDataBase.SaveChangesAsync();
                 return roulette;
             }
             catch (Exception)
