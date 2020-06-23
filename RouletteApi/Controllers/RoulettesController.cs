@@ -10,17 +10,17 @@ namespace RouletteApi.Controllers
     [ApiController]
     public class RoulettesController : ControllerBase
     {
-        private readonly RouletteService rouletteService;
+        private readonly RouletteService _rouletteService;
 
         public RoulettesController(onlinebettingContext context)
         {
-            rouletteService = new RouletteServiceImpl(_context);
+            _rouletteService = new RouletteServiceImpl(context);
         }
 
         [HttpGet("create")]
         public async Task<IActionResult> CreateRoulette(Roulette roulette)
         {
-            Roulette rouletteR = await rouletteService.AddRoulette(roulette);
+            Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
 
             return Ok(rouletteR.Id);
         }
