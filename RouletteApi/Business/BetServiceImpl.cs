@@ -23,7 +23,7 @@ namespace RouletteApi.Business
             {
                 ValidateStructureBet(bet);
                 Roulette roulette = await _contextDataBase.Roulette.FindAsync(bet.IdRoulette);
-                await ValidateExistRoulette(roulette);
+                ValidateExistRoulette(roulette);
                 await _contextDataBase.Bet.AddAsync(bet);
                 roulette.TotalAmountBet = roulette.TotalAmountBet + bet.Amount;
                 _contextDataBase.Entry(roulette).Property("TotalAmountBet").IsModified = true;
@@ -54,7 +54,7 @@ namespace RouletteApi.Business
                 throw new BadRequestException("Se debe enviar un id de ruleta valido");
         }
 
-        public async Task ValidateExistRoulette(Roulette roulette)
+        public void ValidateExistRoulette(Roulette roulette)
         {
             if (roulette == null)
                 throw new BadRequestException("La ruleta especificada no existe en el sistema");
