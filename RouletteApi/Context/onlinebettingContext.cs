@@ -49,6 +49,8 @@ namespace RouletteApi.Context
                     .IsRequired()
                     .HasColumnName("state")
                     .HasColumnType("character varying");
+
+                entity.Property(e => e.TotalAmountBet).HasColumnName("totalAmountBet");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -16,5 +16,7 @@ namespace RouletteApi.Entities
         [Column(Order = 1, TypeName = "serial")]
         public long Id { get; set; }
         public string State { get; set; }
+        public long TotalAmountBet { set; get; }
+
     }
 }

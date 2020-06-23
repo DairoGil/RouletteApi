@@ -45,5 +45,20 @@ namespace RouletteApi.Controllers
             List<Roulette> listRoulette = await _rouletteService.ListRoulette();
             return Ok(listRoulette);
         }
+
+        [HttpGet("close/{idRoulette}")]
+        public async Task<IActionResult> CloseRoulette(long idRoulette)
+        {
+            try
+            {
+                long total  = await _rouletteService.CloseRoulette(idRoulette);
+                return Ok($"Se ha cerrado exitosamente, el total de las apuestas es de {total}");
+            }
+            catch (BadRequestException exception)
+            {
+                return BadRequest(exception.Message);
+            }
+
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace RouletteApi.Business
         Task<Roulette> AddRoulette();
         Task OpenRoulette(long idRoulette);
         Task<List<Roulette>> ListRoulette();
+        Task<long> CloseRoulette(long idRoulette);
     }
 }
