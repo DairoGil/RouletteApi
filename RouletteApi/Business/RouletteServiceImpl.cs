@@ -20,7 +20,7 @@ namespace RouletteApi.Business
             try
             {
                 Roulette roulette = new Roulette();
-                _contextDataBase.Roulette.Add(roulette);
+                await _contextDataBase.Roulette.AddAsync(roulette);
                 await _contextDataBase.SaveChangesAsync();
                 return roulette;
             }
