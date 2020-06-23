@@ -23,5 +23,12 @@ namespace RouletteApi.Controllers
             Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
             return Ok(rouletteR.Id);
         }
+
+        [HttpGet("open/{idRoulette}")]
+        public async Task<IActionResult> OpenRoulette(long idRoulette)
+        {
+            await _rouletteService.OpenRoulette(idRoulette);
+            return Ok("Exitoso, se abrio la ruleta");
+        }
     }
 }
