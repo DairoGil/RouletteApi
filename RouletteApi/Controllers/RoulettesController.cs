@@ -6,7 +6,7 @@ using RouletteApi.Entities;
 
 namespace RouletteApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("roulette")]
     [ApiController]
     public class RoulettesController : ControllerBase
     {
