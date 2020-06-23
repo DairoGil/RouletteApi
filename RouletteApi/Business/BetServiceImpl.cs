@@ -34,16 +34,18 @@ namespace RouletteApi.Business
 
         public void ValidateStructureBet(Bet bet)
         {
-            string color = bet.Color.ToLower();
+            string color = bet.Color != null ? bet.Color.ToLower() : null;
+            if (String.IsNullOrEmpty(color) && bet.Number == null)
+                throw  new BadRequestException("Debe apostar a un color o a un numero");
             if (bet.Number < 0 | bet.Number > 36)
                 throw new BadRequestException("El numero a apostar debe estar entre 0 y 36");
-            if (!color.Equals(ColorBet.color.negro) && !color.Equals(ColorBet.color.rojo))
+            if (!(color.Equals(ColorBet.color.negro.ToString()) | color.Equals(ColorBet.color.rojo.ToString())))
                 throw new BadRequestException("El color a apostar debe ser negro o rojo");
             if (bet.Amount <= 0 | bet.Amount > 10000)
                 throw new BadRequestException("La apuesta debe ser mas de 0 dolares y maximo 10.000 dolares");
             if (String.IsNullOrEmpty(bet.IdUser))
                 throw new BadRequestException("Se debe indicar el id del usuario que desea apostar");
-            if (bet.Number != null && String.IsNullOrEmpty(color))
+            if (bet.Number != null && !String.IsNullOrEmpty(color))
                 throw new BadRequestException("No puede apostar a un numero y a un color a la vez");
             if (bet.IdRoulette == 0)
                 throw new BadRequestException("Se debe enviar un id de ruleta valido");
@@ -54,7 +56,7 @@ namespace RouletteApi.Business
             Roulette roulette = await _contextDataBase.Roulette.FindAsync(bet.IdRoulette);
             if (roulette == null)
                 throw new BadRequestException("La ruleta especificada no existe en el sistema");
-            if (roulette.State.Equals(StateRoulette.States.Closed))
+            if (roulette.State.Equals(StateRoulette.States.Closed.ToString()))
                 throw new BadRequestException("La ruleta se encuentra cerrada");
         }
     }
