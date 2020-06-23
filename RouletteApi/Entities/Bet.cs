@@ -7,6 +7,11 @@ namespace RouletteApi.Entities
 {
     public partial class Bet
     {
+        public Bet()
+        {
+            Number = null;
+        }
+
         [Key]
         [Column(Order = 1, TypeName = "serial")]
         public long Id { get; set; }
