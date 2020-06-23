@@ -16,7 +16,6 @@ namespace RouletteApi.Business
 
         public async Task<Roulette> AddRoulette(Roulette roulette)
         {
-            roulette.State = "" + (State.States)Enum.Parse(typeof(State.States), roulette.State);
             _context.Roulette.Add(roulette);
             await _context.SaveChangesAsync();
 
