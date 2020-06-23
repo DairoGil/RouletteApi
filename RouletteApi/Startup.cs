@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RouletteApi.Context;
+using StackExchange.Redis;
 
 namespace RouletteApi
 {
@@ -16,6 +17,7 @@ namespace RouletteApi
         private static string DataBaseUser = Environment.GetEnvironmentVariable("DataBaseUser");
         private static string DataBasePassword = Environment.GetEnvironmentVariable("DataBasePassword");
         private static string DataBaseName = Environment.GetEnvironmentVariable("DataBaseName");
+        private static string RedisHost = Environment.GetEnvironmentVariable("RedisHost");
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,6 +29,7 @@ namespace RouletteApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<onlinebettingContext>((options => options.UseNpgsql($"Host = {DataBaseHost}; Database = {DataBaseName}; Username = {DataBaseUser}; Password = {DataBasePassword}")));
+            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{RedisHost}"));
             services.AddControllers();
 
         }

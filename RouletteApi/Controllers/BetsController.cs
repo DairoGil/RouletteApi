@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.SecurityTokenService;
 using RouletteApi.Business;
 using RouletteApi.Context;
 using RouletteApi.Entities;
+using StackExchange.Redis;
 
 namespace RouletteApi.Controllers
 {
@@ -18,9 +19,9 @@ namespace RouletteApi.Controllers
     {
         private readonly BetService _betService;
 
-        public BetsController(onlinebettingContext context)
+        public BetsController(onlinebettingContext context, IConnectionMultiplexer redisImpl)
         {
-            _betService = new BetServiceImpl(context);
+            _betService = new BetServiceImpl(context, redisImpl);
         }
 
         [HttpPost("create")]
