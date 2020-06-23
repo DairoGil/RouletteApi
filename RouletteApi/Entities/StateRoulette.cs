@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RouletteApi.Entities
 {
-    public class State
+    public class StateRoulette
     {
         public enum States
         {

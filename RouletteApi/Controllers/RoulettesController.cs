@@ -6,24 +6,21 @@ using RouletteApi.Entities;
 
 namespace RouletteApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("roulette")]
     [ApiController]
     public class RoulettesController : ControllerBase
     {
-        private readonly onlinebettingContext _context;
-        private readonly RouletteService rouletteService;
+        private readonly RouletteService _rouletteService;
 
         public RoulettesController(onlinebettingContext context)
         {
-            _context = context;
-            rouletteService = new RouletteServiceImpl(_context);
+            _rouletteService = new RouletteServiceImpl(context);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostRoulette(Roulette roulette)
+        [HttpGet("create")]
+        public async Task<IActionResult> CreateRoulette(Roulette roulette)
         {
-            Roulette rouletteR = await rouletteService.AddRoulette(roulette);
-
+            Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
             return Ok(rouletteR.Id);
         }
     }
