@@ -17,7 +17,8 @@
         "DataBaseUser": "postgres",
         "DataBasePassword": "root",
         "DataBaseHost": "localhost",
-        "DataBaseName": "onlinebetting"
+        "DataBaseName": "onlinebetting",
+        "RedisHost" : "localhost"
       }
     },
     "RouletteApi": {
@@ -29,7 +30,8 @@
         "DataBaseUser": "postgres",
         "DataBasePassword": "root",
         "DataBaseHost": "localhost",
-        "DataBaseName": "onlinebetting"
+        "DataBaseName": "onlinebetting",
+        "RedisHost": "localhost"
       }
     }
   }
