@@ -5,9 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Content Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Business\" />
     <Folder Include="Context\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
