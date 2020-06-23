@@ -21,7 +21,6 @@ namespace RouletteApi.Controllers
         public async Task<IActionResult> CreateRoulette(Roulette roulette)
         {
             Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
-
             return Ok(rouletteR.Id);
         }
     }
