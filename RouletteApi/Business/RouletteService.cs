@@ -1,4 +1,5 @@
 ﻿using RouletteApi.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RouletteApi.Business
@@ -7,5 +8,6 @@ namespace RouletteApi.Business
     {
         Task<Roulette> AddRoulette();
         Task OpenRoulette(long idRoulette);
+        Task<List<Roulette>> ListRoulette();
     }
 }

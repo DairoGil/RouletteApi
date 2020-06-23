@@ -1,7 +1,9 @@
-﻿using Microsoft.IdentityModel.SecurityTokenService;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.SecurityTokenService;
 using RouletteApi.Context;
 using RouletteApi.Entities;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace RouletteApi.Business
@@ -23,6 +25,18 @@ namespace RouletteApi.Business
                 await _contextDataBase.Roulette.AddAsync(roulette);
                 await _contextDataBase.SaveChangesAsync();
                 return roulette;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<Roulette>> ListRoulette()
+        {
+            try
+            {
+                return await _contextDataBase.Roulette.ToListAsync();
             }
             catch (Exception)
             {
