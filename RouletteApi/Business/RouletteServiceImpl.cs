@@ -15,10 +15,11 @@ namespace RouletteApi.Business
             _contextDataBase = contextDataBase;
         }
 
-        public async Task<Roulette> AddRoulette(Roulette roulette)
+        public async Task<Roulette> AddRoulette()
         {
             try
             {
+                Roulette roulette = new Roulette();
                 _contextDataBase.Roulette.Add(roulette);
                 await _contextDataBase.SaveChangesAsync();
                 return roulette;

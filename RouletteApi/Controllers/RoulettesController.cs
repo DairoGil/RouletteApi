@@ -18,9 +18,9 @@ namespace RouletteApi.Controllers
         }
 
         [HttpGet("create")]
-        public async Task<IActionResult> CreateRoulette(Roulette roulette)
+        public async Task<IActionResult> CreateRoulette( )
         {
-            Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
+            Roulette rouletteR = await _rouletteService.AddRoulette();
             return Ok(rouletteR.Id);
         }
 
