@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.SecurityTokenService;
 using RouletteApi.Business;
 using RouletteApi.Context;
 using RouletteApi.Entities;
@@ -18,10 +19,23 @@ namespace RouletteApi.Controllers
         }
 
         [HttpGet("create")]
-        public async Task<IActionResult> CreateRoulette(Roulette roulette)
+        public async Task<IActionResult> CreateRoulette( )
         {
-            Roulette rouletteR = await _rouletteService.AddRoulette(roulette);
+            Roulette rouletteR = await _rouletteService.AddRoulette();
             return Ok(rouletteR.Id);
+        }
+
+        [HttpGet("open/{idRoulette}")]
+        public async Task<IActionResult> OpenRoulette(long idRoulette)
+        {
+            try {
+                await _rouletteService.OpenRoulette(idRoulette);
+                return Ok("Exitoso, se abrio la ruleta");
+            }catch(BadRequestException exception)
+            {
+                return BadRequest(exception.Message);
+            }
+            
         }
     }
 }

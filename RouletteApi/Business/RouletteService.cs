@@ -5,6 +5,7 @@ namespace RouletteApi.Business
 {
     interface RouletteService
     {
-        Task<Roulette> AddRoulette(Roulette roulette);
+        Task<Roulette> AddRoulette();
+        Task OpenRoulette(long idRoulette);
     }
 }

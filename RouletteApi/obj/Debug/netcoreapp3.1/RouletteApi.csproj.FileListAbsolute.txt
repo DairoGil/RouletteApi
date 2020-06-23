@@ -146,5 +146,6 @@ C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\bin\Debug\netcoreapp3.1\
 C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\bin\Debug\netcoreapp3.1\microsoft.identitymodel.dll
 C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\obj\Debug\netcoreapp3.1\RouletteApi.csproj.CoreCompileInputs.cache
 C:\Users\Dairo Gil\source\repos\RouletteApi\RouletteApi\obj\Debug\netcoreapp3.1\RouletteApi.MvcApplicationPartsAssemblyInfo.cache
